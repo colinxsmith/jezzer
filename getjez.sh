@@ -4,7 +4,7 @@ maxdays=30
 rm index.html*
 progname="Somethin&#039; Else"
 wget http://www.jazzfm.com/player/default/#
-sed -n "/$progname/,/div class/p" index.html | awk -F/ /od/'{print "wget http://www.jazzfm.com/player/od/"$4"/"}' | bash
+sed -n "/$progname/,/div class/p" index.html | awk -F/ /od/'{print "wget http://www.jazzfm.com/player/od/items/"$5"/"}' | bash
 #filenames=`sed -n "/$progname/,/div class/p" index.html | awk -F/ /od/'{print $4}'` 
 filenames=`sed -n "/mp3/p" index.html.1 |sed "s/\\\\\\\\//g"| sed "s/^.*http/http/;s/\".*//"`
 echo $filenames
