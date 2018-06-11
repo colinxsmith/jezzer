@@ -7,8 +7,10 @@ cd /home/colin/iplayer
 #git clone https://github.com/get-iplayer/get_iplayer.git
 #cd /home/colin/iplayer/get_iplayer-2.93/
 cd /home/colin/iplayer/get_iplayer/
-echo Yes | ./get_iplayer --purge-files --refresh --type=radio
-echo Yes | ./get_iplayer --purge-files --refresh --type=tv
+echo Yes | ./get_iplayer --purge-files --type=radio
+echo Yes | ./get_iplayer --purge-files --type=tv
+./get_iplayer --refresh --type=radio
+./get_iplayer --refresh --type=tv
 #./get_iplayer --pid=b097sn02 -o /home/colin/Videos
 
 #./get_iplayer --pvr-add Plant "The Secrets of Quantum Physics"
