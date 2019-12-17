@@ -23,10 +23,10 @@ cd /home/colin/iplayer/get_iplayer
 ./get_iplayer --type=tv --get -o ~/Videos "Without Limits"
 #./get_iplayer --get --type=radio -o /home/colin/Music "years of rock"
 cd /home/colin/Music
-#for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then rate=`mediainfo $f| awk '/Bit rate/{print $4}'|sed -n "/[0-9]/p"`;avconv -i "$f" -ab ${rate}k "${f%.m4a}.mp3";fi; done
-for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then rate=`mediainfo $f| awk '/Bit rate/{print $4}'|sed -n "/[0-9]/p"`;avconv -i "$f" -ab ${rate}k "${f%.m4a}.mp3";tt=$(ls -l --time-style +%s "${f%.m4a}.mp3"|awk '{print $6}');echo $tt;art=$(echo "${f%.m4a}.mp3" |awk -F "-" '{print $1}'|sed "s/_/ /g");tit=$(echo "${f%.m4a}.mp3" |awk -F "-" '{print $2}'|sed "s/_/ /g;s/\.mp3//g");id3v2 -A "BBC Recording" -a "$art" -t "$tit" "${f%.m4a}.mp3";id3v2 -l "${f%.m4a}.mp3";touch -m --date="@$tt" "${f%.m4a}.mp3";fi; done
-#for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then GetInfo;avconv -i "$f" -ab ${bitrate}k "${f%.m4a}.mp3";fi; done
-#for f in *.aac;do if ! [ -f ${f%.aac}.mp3 ]; then avconv -i "$f" -ab 128k "${f%.aac}.mp3";fi; done
+#for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then rate=`mediainfo $f| awk '/Bit rate/{print $4}'|sed -n "/[0-9]/p"`;ffmpeg -i "$f" -ab ${rate}k "${f%.m4a}.mp3";fi; done
+for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then rate=`mediainfo $f| awk '/Bit rate/{print $4}'|sed -n "/[0-9]/p"`;ffmpeg -i "$f" -ab ${rate}k "${f%.m4a}.mp3";tt=$(ls -l --time-style +%s "${f%.m4a}.mp3"|awk '{print $6}');echo $tt;art=$(echo "${f%.m4a}.mp3" |awk -F "-" '{print $1}'|sed "s/_/ /g");tit=$(echo "${f%.m4a}.mp3" |awk -F "-" '{print $2}'|sed "s/_/ /g;s/\.mp3//g");id3v2 -A "BBC Recording" -a "$art" -t "$tit" "${f%.m4a}.mp3";id3v2 -l "${f%.m4a}.mp3";touch -m --date="@$tt" "${f%.m4a}.mp3";fi; done
+#for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then GetInfo;ffmpeg -i "$f" -ab ${bitrate}k "${f%.m4a}.mp3";fi; done
+#for f in *.aac;do if ! [ -f ${f%.aac}.mp3 ]; then ffmpeg -i "$f" -ab 128k "${f%.aac}.mp3";fi; done
 #ps -e | grep media
 #kill -9 `ps -e| awk '/mediatomb/{ print $1 }'`
 sleep 30

@@ -54,15 +54,15 @@ kill  $procjob
 #kill  $procjob
 fi
 
-#kill -9 `ps -e| awk '/avconv/{ print $1 }'`
+#kill -9 `ps -e| awk '/ffmpeg/{ print $1 }'`
 
 rm /home/colin/Music/prog$day.*
 rm /home/colin/Music/*/prog$day.*
-#avconv -i prog$day -codec: copy /home/colin/Music/prog$day.m4a
+#ffmpeg -i prog$day -codec: copy /home/colin/Music/prog$day.m4a
 
 echo "Time now $(date +\%T)"
 
-avconv -i prog$day -codec: copy /home/colin/Music/prog$day.aac
+ffmpeg -i prog$day -codec: copy /home/colin/Music/prog$day.aac
 
 #cd /home/colin/Music
 
@@ -70,7 +70,7 @@ kill -9 `ps -e| awk '/mediatomb/{ print $1 }'`
 sleep 30
 #mediatomb -a /home/colin/Music &
 
-#for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then rate=`mediainfo $f| awk '/Bit rate/{print $4}'|sed -n "/[0-9]/p"`;avconv -i "$f" -ab ${rate}k "${f%.m4a}.mp3";fi; done
+#for f in *.m4a;do if ! [ -f ${f%.m4a}.mp3 ]; then rate=`mediainfo $f| awk '/Bit rate/{print $4}'|sed -n "/[0-9]/p"`;ffmpeg -i "$f" -ab ${rate}k "${f%.m4a}.mp3";fi; done
 
 #kill -9 `ps -e| awk '/mediatomb/{ print $1 }'`
 #mv prog$day.mp3 mp3

@@ -1,10 +1,10 @@
 #!/bin/bash
 pic=/home/colin/Pictures/droid`date +%H`.jpg
 echo $pic
-avconv -f video4linux2 -s 640x480 -i /dev/video1 -ss 2 -frames 1 pic.jpg &
+ffmpeg -f video4linux2 -s 640x480 -i /dev/video1 -ss 2 -frames 1 pic.jpg &
 sleep 10
 procconv=$!
-ps -e | grep avconv
+ps -e | grep ffmpeg
 echo $procconv
 mv pic.jpg $pic
 if [ `ls -l $pic | awk '{print $5}'` -lt 10000 ]

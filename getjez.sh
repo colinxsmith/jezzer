@@ -26,7 +26,7 @@ echo get $url
 wget $url
 music=`echo $filename|sed "s/^.*pod/pod/"`
 echo $music
-avconv -i $music -codec: copy ${target%.mp3}.aac
+ffmpeg -i $music -codec: copy ${target%.mp3}.aac
 fi
 rm $music
 done
