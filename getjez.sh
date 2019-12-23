@@ -1,5 +1,7 @@
 #!/bin/bash
 cd ~/Music
+mkdir Jezzer
+cd Jezzer
 maxdays=30
 rm index.html*
 progname="Somethin&#039; Else"
@@ -18,21 +20,22 @@ music=$url #`echo $url | filenames=`sed -n "/mp3/p" index.html.1 |sed "s/\\\\\\\
 target=$(echo $url | awk -F_ '{print "Jez_"$2"-"$3"-20"$4}')
 echo $music
 echo $target
-echo ${music%.mp3}.aac
-if ! [ -f ${target%.mp3}.aac ]
+echo ${music%.mp3}.mp3
+if ! [ -f ${target%.mp3}.mp3 ]
 then
 echo get $url
 #gfile=$(sed -n "/\.mp3'/p" $filename | awk -F\' '{print $2}')
 wget $url
 music=`echo $filename|sed "s/^.*pod/pod/"`
 echo $music
-ffmpeg -i $music -codec: copy ${target%.mp3}.aac
+#ffmpeg -i $music -codec: copy ${target%.mp3}.aac
+cp -p $music  ${target%.mp3}.mp3
 fi
 rm $music
 done
 rm index.html*
-ls -l ${target%.mp3}.aac
-echo ${target%.mp3}.aac|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$2"/"$1"/"$3" +%s" }'|bash
+ls -l ${target%.mp3}.mp3
+echo ${target%.mp3}.mp3|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$2"/"$1"/"$3" +%s" }'|bash
 ls -l --time-style=+%s $target | awk '{ print $6 }'
 for jez in Jez*
 do
