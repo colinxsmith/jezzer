@@ -35,11 +35,11 @@ rm $music
 done
 rm index.html*
 ls -l ${target%.mp3}.mp3
-echo ${target%.mp3}.mp3|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$2"/"$1"/"$3" +%s" }'|bash
-ls -l --time-style=+%s $target | awk '{ print $6 }'
+#echo ${target%.mp3}.mp3|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$3"/"$2"/"$1" +%s" }'|bash
+ls -l --time-style=+%s $target.mp3 | awk '{ print $6 }'
 for jez in Jez*
 do
-filetime=$(echo $jez|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$2"/"$1"/"$3" +%s" }'|bash)e
+#filetime=$(echo $jez|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$3"/"$2"/"$1" +%s" }'|bash)e
 filetime=$(ls -l --time-style=+%s $jez | awk '{ print $6 }')
 now=$(date +%s)
 fileage=$(echo $now-$filetime | awk -F- '{ a=($1-$2)/3600/24;b=(a-int(a))*24;c=(b-int(b))*60;d=(c-int(c))*60;printf("\x1b[1;1;31m%d days %d hours %d minutes %d seconds\x1b[0;m", int(a),b,c,d);}')
