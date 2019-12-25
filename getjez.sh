@@ -30,9 +30,10 @@ music=`echo $filename|sed "s/^.*pod/pod/"`
 echo $music
 #ffmpeg -i $music -codec: copy ${target%.mp3}.aac
 cp -p $music  ${target%.mp3}.mp3
-ffmpeg -ss 7260 -i ${target%.mp3}.mp3 end.mp3
 fi
 rm $music
+rm end.mp3
+ffmpeg -ss 7260 -i ${target%.mp3}.mp3 end.mp3
 done
 rm index.html*
 ls -l ${target%.mp3}.mp3
