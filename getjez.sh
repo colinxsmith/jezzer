@@ -31,7 +31,7 @@ echo $music
 #ffmpeg -i $music -codec: copy ${target%.mp3}.aac
 cp -p $music  ${target%.mp3}.mp3
 rm end.mp3
-ffmpeg -ss 7260 -i ${target%.mp3}.mp3 end.mp3
+ffmpeg -ss 7276 -i ${target%.mp3}.mp3 end.mp3
 fi
 rm $music
 done
