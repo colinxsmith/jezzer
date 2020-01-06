@@ -4,12 +4,9 @@ mkdir Jezzer
 cd Jezzer
 maxdays=30
 rm index.html*
-progname="Somethin&#039; Else"
+progname="Paul Jones"
 wget http://www.jazzfm.com/player/default/#
-#sed -n "/$progname/,/div class/p" index.html | awk -F/ /od/'{print "wget http://www.jazzfm.com/player/od/items/"$5"/"}' | bash
-
 sed -n "/$progname/{x;p;d;}; x" index.html | sed "/wrapper/d" |awk -F\" '{print"wget www.jazzfm.com"$2;}' |bash
-#filenames=`sed -n "/$progname/,/div class/p" index.html | awk -F/ /od/'{print $4}'` 
 filenames=`sed -n "/mp3/p" index.html.1 |sed "s/\\\\\\\\//g"| sed "s/^.*http/http/;s/\".*//"`
 echo $filenames
 for filename in $filenames
@@ -19,7 +16,7 @@ echo $filename
 url="$filename"
 echo $url
 music=$url #`echo $url | filenames=`sed -n "/mp3/p" index.html.1 |sed "s/\\\\\\\\//g"| sed "s/^.*http/http/;s/\".*//"``
-target=$(echo $url | awk -F_ '{print "Jez_"$2"-"$3"-20"$4}')
+target=$(echo $url | awk -F_ '{print "Paul_"$2"-"$3"-20"$4}')
 echo $music
 echo $target
 echo ${music%.mp3}.mp3
@@ -32,8 +29,8 @@ music=`echo $filename|sed "s/^.*pod/pod/"`
 echo $music
 #ffmpeg -i $music -codec: copy ${target%.mp3}.aac
 cp -p $music  ${target%.mp3}.mp3
-rm end.mp3
-ffmpeg -ss 7276 -i ${target%.mp3}.mp3 end.mp3
+#rm end.mp3
+#ffmpeg -ss 7276 -i ${target%.mp3}.mp3 end.mp3
 fi
 rm $music
 done
@@ -41,7 +38,7 @@ rm index.html*
 ls -l ${target%.mp3}.mp3
 #echo ${target%.mp3}.mp3|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$3"/"$2"/"$1" +%s" }'|bash
 ls -l --time-style=+%s $target.mp3 | awk '{ print $6 }'
-for jez in Jez*
+for jez in Paul*
 do
 #filetime=$(echo $jez|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$3"/"$2"/"$1" +%s" }'|bash)e
 filetime=$(ls -l --time-style=+%s $jez | awk '{ print $6 }')
