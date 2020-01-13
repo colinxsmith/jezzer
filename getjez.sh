@@ -49,7 +49,7 @@ now=$(date +%s)
 fileage=$(echo $now-$filetime | awk -F- '{ a=($1-$2)/3600/24;b=(a-int(a))*24;c=(b-int(b))*60;d=(c-int(c))*60;printf("\x1b[1;1;31m%d days %d hours %d minutes %d seconds\x1b[0;m", int(a),b,c,d);}')
 check=$(echo $now-$filetime | awk -F- '{ a=($1-$2)/3600/24;print int(a);}')
 echo Age of $jez is $fileage
-if  [ $check -gt $maxdays ]
+if  [ $check -gt $maxdays ] && [ -f $jez ]
 then
 echo More than $maxdays days
 echo Delete $jez
