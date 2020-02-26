@@ -38,7 +38,7 @@ fi
 rm $music
 done
 #rm index.html*
- -l ${target%.mp3}.mp3
+ls -l ${target%.mp3}.mp3
 #echo ${target%.mp3}.mp3|sed "s/.*_//;s/\..*//"|awk -F- '{ print "date --date="$3"/"$2"/"$1" +%s" }'|bash
 ls -l --time-style=+%s $target.mp3 | awk '{ print $6 }'
 for jez in Jez*
