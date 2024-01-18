@@ -1,11 +1,5 @@
 #!/bin/bash
-#sudo apt install libxml2-dev
-#cpan -i CPAN
-#cpan -i XML::Simple
-#cpan -i XML::LibXML::XPathContext
 cd /home/colin/iplayer
-#git clone https://github.com/get-iplayer/get_iplayer.git
-#cd /home/colin/iplayer/get_iplayer-2.93/
 cd /home/colin/iplayer/get_iplayer/
 echo Yes | ./get_iplayer --purge-files --type=radio
 echo Yes | ./get_iplayer --purge-files --type=tv
@@ -15,7 +9,10 @@ echo Yes | ./get_iplayer --purge-files --type=tv
 
 #./get_iplayer --pvr-add Plant "The Secrets of Quantum Physics"
 #./get_iplayer --pvr-add Plant "Robert Plant"
+#./get_iplayer --pvr-add roddy "David Rodigan"
+#./get_iplayer --pvr-add block "Block party"
 #./get_iplayer --pvr-add Page "Jimmy Page"
+#./get_iplayer --pvr-add jeff "Jeff Beck"
 #./get_iplayer --pvr-add Peel "John Peel"
 #./get_iplayer --pvr-add Gilles Gilles
 #./get_iplayer --pvr-add Iggy Iggy
