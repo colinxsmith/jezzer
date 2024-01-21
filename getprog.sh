@@ -18,9 +18,9 @@ echo Yes | ./get_iplayer --purge-files --type=tv
 #./get_iplayer --pvr-add Gilles Gilles
 #./get_iplayer --pvr-add Iggy Iggy
 #./get_iplayer --pvr-add Jazz "Jazz on 3"
-#./get_ilpayer --pvr_add iq "Nabihah Iqbal"
-#./get_ilpayer --pvr_add deep "Deep Purple"
-#./get_ilpayer --pvr_add zep "Led Zepplin"
+#./get_iplayer --pvr_add iq "Nabihah Iqbal"
+#./get_iplayer --pvr_add deep "Deep Purple"
+#./get_iplayer --pvr_add zep "Led Zepplin"
 ./get_iplayer --pvr-list
 
 echo "Time now $(date +\%T)"
