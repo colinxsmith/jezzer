@@ -12,7 +12,8 @@ echo Yes | ./get_iplayer --purge-files --type=tv
 ./get_iplayer --refresh --type=radio
 ./get_iplayer --refresh --type=tv
 #./get_iplayer --pid=b097sn02 -o /home/colin/Videos
-
+#./get_iplayer --pvr-add roddy "David Rodigan"
+#./get_iplayer --pvr-add block "BLOCK PARTY"
 #./get_iplayer --pvr-add Plant "The Secrets of Quantum Physics"
 #./get_iplayer --pvr-add Plant "Robert Plant"
 #./get_iplayer --pvr-add Page "Jimmy Page"
@@ -20,6 +21,9 @@ echo Yes | ./get_iplayer --purge-files --type=tv
 #./get_iplayer --pvr-add Gilles Gilles
 #./get_iplayer --pvr-add Iggy Iggy
 #./get_iplayer --pvr-add Jazz "Jazz on 3"
+#./get_ilpayer --pvr_add iq "Nabihah Iqbal"
+#./get_ilpayer --pvr_add deep "Deep Purple"
+#./get_ilpayer --pvr_add zep "Led Zepplin"
 ./get_iplayer --pvr-list
 
 echo "Time now $(date +\%T)"
