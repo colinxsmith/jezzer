@@ -1,11 +1,12 @@
 #!/bin/bash
-cd /home/colin/iplayer
-cd /home/colin/iplayer/get_iplayer/
-echo Yes | ./get_iplayer --purge-files --type=radio
-echo Yes | ./get_iplayer --purge-files --type=tv
+cd /home/pi/iplayer
+cd /home/pi/iplayer/get_iplayer/
+#echo Yes | ./get_iplayer --purge-files --type=radio
+#echo Yes | ./get_iplayer --purge-files --type=tv
+(cd home/pi/Music;/home/pi/jezzer/timelapse.sh)
 ./get_iplayer --refresh --type=radio
 ./get_iplayer --refresh --type=tv
-#./get_iplayer --pid=b097sn02 -o /home/colin/Videos
+#./get_iplayer --pid=b097sn02 -o /home/pi/Videos
 #./get_iplayer --pvr-add roddy "David Rodigan"
 #./get_iplayer --pvr-add block "BLOCK PARTY"
 #./get_iplayer --pvr-add Plant "The Secrets of Quantum Physics"
@@ -25,10 +26,10 @@ echo Yes | ./get_iplayer --purge-files --type=tv
 
 echo "Time now $(date +\%T)"
 
-./get_iplayer --pvr --type=radio -o /home/colin/Music
-./get_iplayer --pvr --type=tv -o /home/colin/Videos
+./get_iplayer --pvr --type=radio -o /home/pi/Music
+./get_iplayer --pvr --type=tv -o /home/pi/Videos
 
-cd /home/colin/Music
+cd /home/pi/Music
 KKK=kkk`date +%s`.aac
 echo $KKK
 
