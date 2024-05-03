@@ -9,5 +9,6 @@ daytest=$(echo $now,$filetime | awk -F, '{print int(($1-$2)/60/60/24)}')
 if [ $daytest -gt 30 ] 
 then
 echo deleting $i $daytest
+rm $i
 fi
 done
