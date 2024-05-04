@@ -4,6 +4,7 @@ cd /home/pi/iplayer/get_iplayer/
 #echo Yes | ./get_iplayer --purge-files --type=radio
 #echo Yes | ./get_iplayer --purge-files --type=tv
 (cd /home/pi/Music;/home/pi/jezzer/timelapse.sh)
+(cd /home/pi/Videos;/home/pi/jezzer/timelapse.sh)
 ./get_iplayer --refresh --type=radio
 ./get_iplayer --refresh --type=tv
 #./get_iplayer --pid=b097sn02 -o /home/pi/Videos
