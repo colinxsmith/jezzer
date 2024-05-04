@@ -1,6 +1,6 @@
 #!/bin/bash
 now=$(date +%s)
-for i in *original.m4a
+for i in *original.m4a *original.mp4
 do
 filetime=$(ls -l --time-style=+%s $i | awk '{print $6}')
 #echo $i,$filetime,$now,$filetime
