@@ -1,7 +1,7 @@
 #!/bin/bash
 limit=40
 now=$(date +%s)
-for i in *original.m4a *original.mp4 "Brown*.m4a"
+for i in *_original.m4a *_original.mp4 "Brown*.m4a" *_other.m4a
 do
 filetime=$(ls -l --time-style=+%s $i | awk '{print $6}')
 #echo $i,$filetime,$now,$filetime
