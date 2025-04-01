@@ -94,6 +94,7 @@ fi
 echo "Start $st, Stop $fin, Time length $ti"
 
 echo "ffmpeg -ss $st -i $5 -t $ti -codec: copy $6"
-ffmpeg -ss $st -i $5 -t $ti -codec: copy trans.aac
-ffmpeg -i trans.aac -codec: copy $6
-rm trans.aac
+ffmpeg -ss $st -i $5 -t $ti -c copy $6
+#ffmpeg -ss $st -i $5 -t $ti -codec: copy trans.aac
+#ffmpeg -i trans.aac -codec: copy $6
+#rm trans.aac
